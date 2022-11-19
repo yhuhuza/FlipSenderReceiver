@@ -1,0 +1,19 @@
+{
+  "name": "flipsenderreciever",
+  "version": "0.0.1",
+  "description": "FlipSenderReciever",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmtryWazzup/FlipSenderReciever.git"
+  },
+  "author": "yhuhuza_wazzup",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DmtryWazzup/FlipSenderReciever/issues"
+  },
+  "homepage": "https://github.com/DmtryWazzup/FlipSenderReciever#readme"
+}
