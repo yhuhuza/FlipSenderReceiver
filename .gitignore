@@ -1,1 +1,13 @@
+.idea/
+.vscode/
+
+# Modules
+node_modules/
+app/
+
+*.log
+.DS*
+
+package-lock.json
+.babelrc
 
