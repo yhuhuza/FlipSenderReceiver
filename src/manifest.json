@@ -1,12 +1,12 @@
 {
   "name": "FlipSenderReceiver",
   "version": "0.0.0.1",
-  "description": "App allow tou to stay in touch with nft projects and their properties",
+  "description": "App allows You to stay in touch with nft projects and their properties",
   "browser_action": {
     "default_icon": {
       "20": "./icons/20x20.png"
     },
-    "default_title": "ShopBuddy USA"
+    "default_title": ""
   },
   "author": "@yhuhuza_@DmtryWazzup",
   "manifest_version": 2,
