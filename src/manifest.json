@@ -1,0 +1,49 @@
+{
+  "name": "FlipSenderReceiver",
+  "version": "0.0.0.1",
+  "description": "App allow tou to stay in touch with nft projects and their properties",
+  "browser_action": {
+    "default_icon": {
+      "20": "./icons/20x20.png"
+    },
+    "default_title": "ShopBuddy USA"
+  },
+  "author": "@yhuhuza_@DmtryWazzup",
+  "manifest_version": 2,
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "storage",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "vendors/bundle.js",
+      "background/bundle.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "js": [
+        "vendors/bundle.js",
+        "content/bundle.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "24": "./icons/24x24.png",
+    "48": "./icons/48x48.png",
+    "128": "./icons/128x128.png"
+  },
+  "web_accessible_resources": [
+    "content/*.css",
+    "content/*.svg",
+    "icons/*.png"
+  ]
+}
