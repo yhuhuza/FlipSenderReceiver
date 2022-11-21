@@ -1,7 +1,7 @@
 {
-  "name": "FlipSenderReceiver",
+  "name": "flipsenderreceiver",
   "version": "1.0.0",
-  "description": "My webpack project",
+  "description": "Basic settings with webpack project",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode=production --define-process-env-node-env=production",
@@ -12,9 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DmtryWazzup/FlipSenderReciever.git"
+    "url": "https://github.com/DmtryWazzup/FlipSenderReciever.git"
   },
-  "author": "yhuhuza_wazzup",
+  "contributors": [{"name": "DmtryWazzup", "url": "https://github.com/DmtryWazzup"}, {"name": "yhuhuza", "url": "https://github.com/yhuhuza"}],
+  "funding":{"type": "crypto", "url": ""},
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DmtryWazzup/FlipSenderReciever/issues"

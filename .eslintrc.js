@@ -11,5 +11,9 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "curly": ["warn","all"],
+        "indent": ["warn", 4],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "double", { "allowTemplateLiterals": true }],
     }
 }
