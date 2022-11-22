@@ -1,18 +1,15 @@
 {
   "name": "FlipSenderReceiver",
   "version": "0.0.0.1",
-  "description": "App allows You to stay in touch with nft projects and their properties",
-  "browser_action": {
-    "default_icon": {
-      "20": "./icons/20x20.png"
-    },
-    "default_title": ""
-  },
   "author": "@yhuhuza_@DmtryWazzup",
+  "description": "App allows You to stay in touch with nft projects and their properties",
   "manifest_version": 2,
   "permissions": [
     "tabs",
     "webRequest",
+    "webNavigation",
+    "unlimitedStorage",
+    "cookies",
     "storage",
     "<all_urls>"
   ],
@@ -37,13 +34,22 @@
     }
   ],
   "icons": {
-    "24": "./icons/24x24.png",
-    "48": "./icons/48x48.png",
-    "128": "./icons/128x128.png"
+    "16": "16x16.png",
+    "24": "24x24.png",
+    "32": "32x32.png",
+    "64": "64x464.png",
+    "128": "128x128.png"
+  },
+  "browser_action": {
+    "default_icon": "128x128.png",
+    "default_title": "FlipSenderReceiver",
+    "default_popup": "popup.html"
   },
   "web_accessible_resources": [
     "content/*.css",
     "content/*.svg",
-    "icons/*.png"
+    "icons/*.png",
+    "*.css",
+    "*.png"
   ]
 }
