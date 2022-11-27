@@ -1,52 +1,104 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin  = require('html-webpack-plugin');
 
-const isProduction = process.env.NODE_ENV == 'production';
+const PATHS = {
+    source: path.join(__dirname, 'src'),
+    build: path.join(__dirname, 'app'),
+};
 
-const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
+let mode = 'development';
+if (process.env.NODE_ENV === 'production') {
+    mode = 'production'
+}
 
-const config = {
-    entry: './src/app.js',
+module.exports = {
+    mode: mode,
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                },
+            },
+            name: false,
+        },
+    },
+    entry: {
+        background: `${PATHS.source}/background/app.js`,
+        content: `${PATHS.source}/content/app.js`,
+        popup: `${PATHS.source}/popup/app.js`,
+    },
     output: {
-        path: path.resolve(__dirname, 'app'),
+        path: PATHS.build,
+        filename: '[name]/bundle.js',
     },
-    devServer: {
-        open: true,
-        host: 'localhost',
+    resolve: {
+        alias: {
+            '~': path.resolve(__dirname, 'src'),
+            '@': path.resolve(__dirname, 'src'),
+        },
     },
-    plugins: [
-    ],
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/i,
-                loader: 'babel-loader',
+                enforce: 'pre',
+                test: /\.(js)$/,
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            [
+                                '@babel/preset-env',
+                                {
+                                    corejs: 3,
+                                    targets: {
+                                        browsers: [
+                                            'last 5 Chrome versions',
+                                            'last 5 firefox versions',
+                                        ],
+                                    },
+                                    useBuiltIns: 'usage',
+                                },
+                            ],
+                        ],
+                    },
+                },
             },
             {
                 test: /\.css$/i,
-                use: [stylesHandler,'css-loader'],
+                use: ['css-loader'],
             },
             {
-                test: /\.s[ac]ss$/i,
-                use: [stylesHandler, 'css-loader', 'sass-loader'],
-            },
-            {
-                test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-                type: 'asset',
+                test: /\.(png|jpg|gif|eot|svg|otf|ttf|woff|woff2)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 500000,
+                },
             },
         ],
     },
+    plugins: [
+        new CleanWebpackPlugin({
+            cleanAfterEveryBuildPatterns: ['app']
+        }),
+        new CopyWebpackPlugin( {
+            patterns: [
+                { from: 'static' }
+            ]
+        }),
+        new MiniCssExtractPlugin({ filename: '[name]/styles.css' }),
+    ],
 };
 
-module.exports = () => {
-    if (isProduction) {
-        config.mode = 'production';
-
-        config.plugins.push(new MiniCssExtractPlugin());
-
-
-    } else {
-        config.mode = 'development';
-    }
-    return config;
-};
