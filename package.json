@@ -4,60 +4,32 @@
   "description": "Basic settings with webpack project",
   "main": "index.js",
   "scripts": {
-    "serve": "set NODE_ENV=developmemt&&webpack serve --open",
-    "build": "set NODE_ENV=production&&webpack"
+    "build": "webpack --mode=production --define-process-env-node-env=production",
+    "serve": "webpack serve"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DmtryWazzup/FlipSenderReciever.git"
+    "url": "https://github.com/WazzupEth/FlipSenderReciever"
   },
-  "contributors": [
-    {
-      "name": "DmtryWazzup",
-      "url": "https://github.com/DmtryWazzup"
-    },
-    {
-      "name": "yhuhuza",
-      "url": "https://github.com/yhuhuza"
-    }
-  ],
-  "funding": {
-    "type": "crypto",
-    "url": ""
-  },
+  "contributors": [{"name": "WazzupEth", "url": "https://github.com/WazzupEth"}, {"name": "yhuhuza", "url": "https://github.com/yhuhuza"}],
+  "funding":{"type": "crypto", "url": ""},
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DmtryWazzup/FlipSenderReciever/issues"
+    "url": "https://github.com/WazzupEth/FlipSenderReciever/issues"
   },
-  "homepage": "https://github.com/DmtryWazzup/FlipSenderReciever#readme",
+  "homepage": "https://github.com/WazzupEth/FlipSenderReciever#readme",
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.20.2",
     "@webpack-cli/generators": "^3.0.0",
     "babel": "^6.23.0",
     "babel-loader": "^9.1.0",
-    "clean-webpack-plugin": "^4.0.0",
-    "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.28.0",
-    "eslint-loader": "^4.0.2",
-    "html-webpack-plugin": "^5.5.0",
     "install": "^0.13.0",
-    "lodash": "^4.17.21",
-    "lodash-webpack-plugin": "^0.11.6",
     "mini-css-extract-plugin": "^2.7.0",
     "npm": "^9.1.2",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.0",
     "webpack-dev-server": "^4.11.1"
-  },
-  "dependencies": {
-    "cross-env": "^7.0.3",
-    "css-loader": "^6.7.2",
-    "postcss": "^8.4.19",
-    "postcss-loader": "^7.0.1",
-    "postcss-preset-env": "^7.8.3",
-    "sass": "^1.56.1",
-    "sass-loader": "^13.2.0",
-    "style-loader": "^3.3.1"
   }
 }
