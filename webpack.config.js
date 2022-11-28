@@ -1,22 +1,17 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
 
 const PATHS = {
     source: path.join(__dirname, 'src'),
-    build: path.join(__dirname, 'app'),
+    build: path.join(__dirname, 'flipSenderReceiver'),
 };
 
-let mode = 'development';
-if (process.env.NODE_ENV === 'production') {
-    mode = 'production'
-}
-
 module.exports = {
-    mode: mode,
+    mode: process.env.NODE_ENV,
+    watch: process.env.NODE_ENV === 'development',
     optimization: {
         splitChunks: {
             cacheGroups: {
@@ -32,7 +27,6 @@ module.exports = {
     entry: {
         background: `${PATHS.source}/background/app.js`,
         content: `${PATHS.source}/content/app.js`,
-        popup: `${PATHS.source}/popup/app.js`,
     },
     output: {
         path: PATHS.build,
@@ -90,8 +84,11 @@ module.exports = {
         ],
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            template: "./src/content/index.html"
+        }),
         new CleanWebpackPlugin({
-            cleanAfterEveryBuildPatterns: ['app']
+            cleanOnceBeforeBuildPatterns: ['flipSenderReceiver'],
         }),
         new CopyWebpackPlugin( {
             patterns: [
