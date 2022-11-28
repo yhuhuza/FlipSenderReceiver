@@ -10,7 +10,7 @@
     "webNavigation",
     "unlimitedStorage",
     "cookies",
-    "storage",
+    "storage"
   ],
   "background": {
     "scripts": [
