@@ -12,3 +12,4 @@ package-lock.json
 .babelrc
 
 src/utilities/constants.js
+flipSenderReceiver/
