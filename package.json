@@ -4,15 +4,27 @@
   "description": "Basic settings with webpack project",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=production --define-process-env-node-env=production",
-    "serve": "webpack serve"
+    "build": "cross-env NODE_ENV=production webpack",
+    "serve": "cross-env NODE_ENV=development webpack"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/WazzupEth/FlipSenderReciever"
   },
-  "contributors": [{"name": "WazzupEth", "url": "https://github.com/WazzupEth"}, {"name": "yhuhuza", "url": "https://github.com/yhuhuza"}],
-  "funding":{"type": "crypto", "url": ""},
+  "contributors": [
+    {
+      "name": "WazzupEth",
+      "url": "https://github.com/WazzupEth"
+    },
+    {
+      "name": "yhuhuza",
+      "url": "https://github.com/yhuhuza"
+    }
+  ],
+  "funding": {
+    "type": "crypto",
+    "url": ""
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/WazzupEth/FlipSenderReciever/issues"
@@ -24,7 +36,12 @@
     "@webpack-cli/generators": "^3.0.0",
     "babel": "^6.23.0",
     "babel-loader": "^9.1.0",
-    "eslint": "^8.28.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.0.0",
+    "eslint-loader": "^4.0.2",
+    "html-webpack-plugin": "^5.5.0",
     "install": "^0.13.0",
     "mini-css-extract-plugin": "^2.7.0",
     "npm": "^9.1.2",
