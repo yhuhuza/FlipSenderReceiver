@@ -14,7 +14,6 @@
   ],
   "background": {
     "scripts": [
-      "vendors/bundle.js",
       "background/bundle.js"
     ],
     "persistent": true
@@ -23,7 +22,6 @@
     {
       "all_frames": false,
       "js": [
-        "vendors/bundle.js",
         "content/bundle.js"
       ],
       "matches": [
@@ -32,17 +30,18 @@
       "run_at": "document_end"
     }
   ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "icons": {
-    "16": "16x16.png",
-    "24": "24x24.png",
-    "32": "32x32.png",
-    "64": "64x64.png",
-    "128": "128x128.png"
+    "16": "icons/16x16.png",
+    "24": "icons/24x24.png",
+    "32": "icons/32x32.png",
+    "64": "icons/64x64.png",
+    "128": "icons/128x128.png"
   },
   "browser_action": {
-    "default_icon": "128x128.png",
+    "default_icon": "icons/128x128.png",
     "default_title": "FlipSenderReceiver",
-    "default_popup": "index.html"
+    "default_popup": "popup.html"
   },
   "web_accessible_resources": [
     "content/*.css",
