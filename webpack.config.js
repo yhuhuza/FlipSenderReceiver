@@ -11,7 +11,6 @@ const PATHS = {
 module.exports = {
     mode: process.env.NODE_ENV,
     watch: process.env.NODE_ENV === 'development',
-    devtool: process.env.NODE_ENV === 'production' ? '' : 'inline-source-map',
     optimization: {
         splitChunks: {
             cacheGroups: {
