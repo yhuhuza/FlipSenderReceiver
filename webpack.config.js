@@ -2,7 +2,6 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin  = require('html-webpack-plugin');
 
 const PATHS = {
     source: path.join(__dirname, 'src'),
@@ -12,6 +11,7 @@ const PATHS = {
 module.exports = {
     mode: process.env.NODE_ENV,
     watch: process.env.NODE_ENV === 'development',
+    devtool: process.env.NODE_ENV === 'production' ? '' : 'inline-source-map',
     optimization: {
         splitChunks: {
             cacheGroups: {
@@ -71,8 +71,21 @@ module.exports = {
                 },
             },
             {
-                test: /\.css$/i,
-                use: ['css-loader'],
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    {
+                        loader: "css-loader",
+                        options: {
+                            importLoaders: 2
+                        }
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
             },
             {
                 test: /\.(png|jpg|gif|eot|svg|otf|ttf|woff|woff2)$/,
@@ -84,9 +97,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: "./src/content/index.html"
-        }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: ['flipSenderReceiver'],
         }),
