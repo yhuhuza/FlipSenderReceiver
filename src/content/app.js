@@ -5,7 +5,7 @@ const $app = document.querySelector('#app');
 const html = `
   <div class='hello'>
     <div>
-        Hello Dima!
+        Hello, Dima!
     </div>
   </div>
 `
