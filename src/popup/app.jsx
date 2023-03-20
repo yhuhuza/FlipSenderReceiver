@@ -7,7 +7,10 @@ console.log('OPACHA');
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
 root.render(
-      <FlipReciever />
+  <div>
+     <FlipReciever />
+     <div>TEST</div>
+  </div>
 );
 
 
