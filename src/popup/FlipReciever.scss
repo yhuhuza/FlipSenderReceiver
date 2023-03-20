@@ -70,6 +70,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /*------------------*/
 
+.main-div {
+  border: 2px solid purple;
+  border-radius: 5px;
+  width: 120px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .test-styles {
   color: black;
 }

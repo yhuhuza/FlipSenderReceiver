@@ -4,8 +4,8 @@ import './FlipReciever.scss';
 function FlipReciever() {
 
   return (
-    <div>
-      <div className={'test-styles'}>Hello Dima:)</div>
+    <div className={'main-div'}>
+      <div className={'test-styles'}>Hello Dima :)</div>
     </div>
   );
 }
