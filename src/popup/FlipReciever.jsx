@@ -4,7 +4,9 @@ import './FlipReciever.scss';
 function FlipReciever() {
 
   return (
-      <div className={'kaka'}>KAKASHKA</div>
+    <div>
+      <div className={'test-styles'}>Hello Dima:)</div>
+    </div>
   );
 }
 

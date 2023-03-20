@@ -1,6 +1,6 @@
 import {
-  ETHERSCAN_API, 
-  ETHERSCAN_MODULES, 
+  ETHERSCAN_API,
+  ETHERSCAN_MODULES,
   ETHERSCAN_KEY
 } from '../utilities/constants';
 
@@ -35,8 +35,6 @@ function getListOfTransactions(address) {
     })
     .catch(error => console.log(error));
 }
-
-console.log('%cWOW', 'background: gray; color: gold; font-size: 18px');
 
 function getListOfInternalTransactions(address) {
   fetch(`${ETHERSCAN_API}${ETHERSCAN_MODULES.ACC}&action=txlistinternal&address=${address}&startblock=1000&endblock=99999999&page=1&offset=10
