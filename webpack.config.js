@@ -1,5 +1,5 @@
 const path = require('path');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -25,8 +25,8 @@ module.exports = {
   },
   entry: {
     background: `${PATHS.source}/background/app.js`,
-    content: `${PATHS.source}/content/app.js`,
-    popup: `${PATHS.source}/popup/app.js`,
+    // content: `${PATHS.source}/content/app.jsx`,
+    popup: `${PATHS.source}/popup/app.jsx`,
   },
   output: {
     path: PATHS.build,
@@ -69,6 +69,18 @@ module.exports = {
             ],
           },
         },
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
+            cacheCompression: false,
+            // envName: isProduction ? "production" : "development"
+          }
+        }
       },
       {
         test: /\.scss$/,
