@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+        script-src 'self' ./popup/bundle.js ./vendors/bundle.js;
+        style-src 'self' 'unsafe-inline';"
+    />
     <link rel="stylesheet" href="./popup/styles.css">
     <title>FlipSenderReceiver</title>
 </head>
