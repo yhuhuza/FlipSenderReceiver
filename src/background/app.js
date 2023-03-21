@@ -1,6 +1,6 @@
 import {
-  ETHERSCAN_API, 
-  ETHERSCAN_MODULES, 
+  ETHERSCAN_API,
+  ETHERSCAN_MODULES,
   ETHERSCAN_KEY
 } from '../utilities/constants';
 
